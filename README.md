@@ -114,6 +114,19 @@ cd backend
 python main.py
 后端将在 `http://localhost:8000` 运行
 ```
+
+#### 启动前端开发服务器
+
+```bash
+cd frontend
+npm run dev
+```
+前端将在 `http://localhost:5173` 运行
+
+### 5. 访问应用
+
+打开浏览器访问 `http://localhost:5173`，即可使用智能穿衣推荐系统。
+
 ### Windows 用户注意事项
 
 在部分 Windows 环境下，如果没有管理员权限，`npx` 需要使用 `npx.cmd` 才能被正确调用，且需要以管理员身份运行。
@@ -132,19 +145,6 @@ python main.py
     * 右键点击 PyCharm (或终端) 图标，选择 **“以管理员身份运行” (Run as Administrator)**。
     * 重新启动后端项目即可解决。
 
-
-
-#### 启动前端开发服务器
-
-```bash
-cd frontend
-npm run dev
-```
-前端将在 `http://localhost:5173` 运行
-
-### 5. 访问应用
-
-打开浏览器访问 `http://localhost:5173`，即可使用智能穿衣推荐系统。
 
 ## 📖 API 文档
 
