@@ -113,7 +113,7 @@ npm install
 cd backend
 python main.py
 后端将在 `http://localhost:8000` 运行
-
+```
 ### Windows 用户注意事项
 
 在部分 Windows 环境下，如果没有管理员权限，`npx` 需要使用 `npx.cmd` 才能被正确调用，且需要以管理员身份运行。
@@ -131,7 +131,7 @@ python main.py
     * **关闭** 当前的 PyCharm 或终端。
     * 右键点击 PyCharm (或终端) 图标，选择 **“以管理员身份运行” (Run as Administrator)**。
     * 重新启动后端项目即可解决。
-```
+
 
 
 #### 启动前端开发服务器
