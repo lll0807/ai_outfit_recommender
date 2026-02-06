@@ -77,9 +77,6 @@ class WeatherAgent:
         return params
 
     def get_npx_command(self):
-        """
-        Cross-platform npx command resolver
-        """
         if platform.system().lower() == "windows":
             return "npx.cmd"
         return "npx"
