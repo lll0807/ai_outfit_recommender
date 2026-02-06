@@ -112,8 +112,27 @@ npm install
 ```bash
 cd backend
 python main.py
-```
 后端将在 `http://localhost:8000` 运行
+
+### Windows 用户注意事项
+
+在部分 Windows 环境下，如果没有管理员权限，`npx` 需要使用 `npx.cmd` 才能被正确调用，且需要以管理员身份运行。
+
+**如果你在对话时遇到以下报错：**
+> `错误: unhandled errors in a TaskGroup (1 sub-exception)`
+
+**请按以下步骤解决：**
+
+1.  **修改代码**：
+    打开 `backend/agent/weather_agent.py`，搜索 `command="npx"`，将其修改为 `command="npx.cmd"`。
+
+2.  **提升权限（关键）**：
+    此报错通常是因为 `npx` 试图下载工具到系统目录时权限不足 (`EPERM`)。
+    * **关闭** 当前的 PyCharm 或终端。
+    * 右键点击 PyCharm (或终端) 图标，选择 **“以管理员身份运行” (Run as Administrator)**。
+    * 重新启动后端项目即可解决。
+```
+
 
 #### 启动前端开发服务器
 
