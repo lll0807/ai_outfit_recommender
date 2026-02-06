@@ -1,4 +1,5 @@
 import os
+import platform
 from typing import Dict, Any, List
 import time
 from openai import OpenAI
@@ -48,7 +49,7 @@ class WeatherAgent:
         # 创建共享的MCP工具(只创建一次)
         print("  - 创建MCP工具...")
         self.server_params = StdioServerParameters(
-            command="npx",
+            command=self.get_npx_command(),
             args=["-y", "@amap/amap-maps-mcp-server"],
             env={"AMAP_MAPS_API_KEY": os.getenv("AMAP_API_KEY")}
         )
@@ -74,6 +75,14 @@ class WeatherAgent:
             params[key.strip()] = value.strip()
 
         return params
+
+    def get_npx_command(self):
+        """
+        Cross-platform npx command resolver
+        """
+        if platform.system().lower() == "windows":
+            return "npx.cmd"
+        return "npx"
 
     async def _query_weather(self, city: str):
         async with stdio_client(self.server_params) as (read, write):
@@ -155,7 +164,7 @@ class WeatherAgent:
             return {"success": False}
 
         result = asyncio.run(self._query_weather(city_name))
-        print("🌤️ 查询天气结束...")
         weather_result = self.parse_weather_result(result, cha)
+        print(f"🌤️ 查询天气成功...{weather_result}")
         return weather_result
 
