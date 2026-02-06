@@ -4,8 +4,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from agent.recommend import RecommendAgent
 from typing import AsyncGenerator
 import json
-import asyncio
-from typing import List
 
 app = FastAPI(title="AI Chat API")
 
@@ -25,6 +23,7 @@ async def generate_sse_response(user_input: str) -> AsyncGenerator[str, None]:
     SSE 格式: data: <json_content>\n\n
     """
     agent = RecommendAgent()
+
 
     try:
         # 调用 Agent 的流式方法
